@@ -11,7 +11,7 @@ import db.DbException;
 import gui.listener.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Constrains;
-import gui.util.utils;
+import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,7 +59,7 @@ public class DepartmentFormController implements Initializable {
 			entity = getFormData();
 			service.saveOrUpdate(entity);
 			notifyDataChangeListener();
-			utils.currentStage(event).close();
+			Utils.currentStage(event).close();
 		} catch (ValidationException e) {
 			setErrorMessages(e.getErrors());
 		} catch (DbException e) {
@@ -79,7 +79,7 @@ public class DepartmentFormController implements Initializable {
 
 		ValidationException exception = new ValidationException("Validation Exception");
 
-		obj.setId(utils.tryParseToInt(txtId.getText()));
+		obj.setId(Utils.tryParseToInt(txtId.getText()));
 		obj.setName(txtName.getText());
 
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
@@ -94,7 +94,7 @@ public class DepartmentFormController implements Initializable {
 
 	@FXML
 	public void onBtCancelAction(ActionEvent event) {
-		utils.currentStage(event).close();
+		Utils.currentStage(event).close();
 	}
 
 	@Override
