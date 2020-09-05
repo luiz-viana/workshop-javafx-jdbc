@@ -128,7 +128,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 			dialogStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
-			Alerts.showAlert("IOExceptio", "Error loading view", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("IOException", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
 	}
 
@@ -152,8 +152,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 					return;
 				}
 				setGraphic(button);
-				button.setOnAction(
-						event -> createDialogForm(obj, "/gui/SellerForm.fxml", gui.util.Utils.currentStage(event)));
+				button.setOnAction(event -> createDialogForm(obj, "/gui/SellerForm.fxml", gui.util.Utils.currentStage(event)));
 			}
 		});
 	}
